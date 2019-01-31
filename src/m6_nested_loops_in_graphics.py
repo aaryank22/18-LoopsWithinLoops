@@ -80,14 +80,31 @@ def draw_L(window, circle, r, c):
     and m and n are small, positive integers.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-
     x = circle.center.x
     y = circle.center.y
     for j in range(r):
         for k in range(3):
+            circle1 = rg.Circle(rg.Point(x,y), circle.radius)
+            circle1.fill_color = circle.fill_color
+            circle1.attach_to(window)
+            window.render(0.1)
+            x = x + circle.radius * 2
+        y = y + circle.radius * 2
+        x = circle.center.x
+
+    for j in range(3):
+        for k in range(c+3):
+            circle1 = rg.Circle(rg.Point(x,y), circle.radius)
+            circle1.fill_color = circle.fill_color
+            circle1.attach_to(window)
+            window.render(0.1)
+            x = x + circle.radius * 2
+        y = y + circle.radius * 2
+        x = circle.center.x
+
 
 
 def run_test_draw_wall_on_right():
@@ -129,6 +146,33 @@ def draw_wall_on_right(rectangle, n, window):
     # TODO: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
+
+
+    xbegin = rectangle.get_upper_left_corner().x
+    ybegin = rectangle.get_upper_left_corner().y
+
+    xend = rectangle.get_lower_right_corner().x
+    yend = rectangle.get_lower_right_corner().y
+
+    width = xend - xbegin
+    height = yend - ybegin
+
+    xrowbeginning = xbegin
+
+    for k in range(n):
+        for j in range(k + 1):
+            rec = rg.Rectangle(rg.Point(xbegin, ybegin), rg.Point(xend, yend))
+            rec.attach_to(window)
+            window.render(0.1)
+            xbegin = xbegin - width
+            xend = xend - width
+        xbegin = xrowbeginning
+        xend = xbegin + width
+        ybegin = ybegin + height
+        yend = yend + height
+
+
+
 
 
 # ----------------------------------------------------------------------
