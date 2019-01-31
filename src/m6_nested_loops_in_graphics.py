@@ -84,6 +84,11 @@ def draw_L(window, circle, r, c):
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
 
+    x = circle.center.x
+    y = circle.center.y
+    for j in range(r):
+        for k in range(3):
+
 
 def run_test_draw_wall_on_right():
     """ Tests the    draw_wall_on_right    function. """

@@ -212,7 +212,7 @@ def alternating_brackets(m, n):
     #   would defeat the goal of providing practice at loops within loops.
     # ------------------------------------------------------------------
     for j in range(m + 1 - n):
-        for k in range((m - j) // 2):
+        for k in range((m - j)// 2):
             print('[]', end='')
             if j % 2 == 0:
                 print('[', end='')
